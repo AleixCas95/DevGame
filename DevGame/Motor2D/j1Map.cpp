@@ -47,6 +47,9 @@ void j1Map::Draw()
 					if (layer_pointer->data->name == "Background") {
 						App->render->Blit(tileset_pointer->data->texture, coordinates.x, coordinates.y, &rect, layer_pointer->data->speed);
 					}
+					else if (layer_pointer->data->name == "Background2") {
+						App->render->Blit(tileset_pointer->data->texture, coordinates.x, coordinates.y, &rect, layer_pointer->data->speed);
+					}
 					else if (layer_pointer->data->name == "Map") {
 						App->render->Blit(tileset_pointer->data->texture, coordinates.x, coordinates.y, &rect);
 					}

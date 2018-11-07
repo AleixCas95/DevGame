@@ -14,39 +14,41 @@ ModulePlayer::ModulePlayer()
 	name.create("player");
 
 	//idle right animation
-	idle_right.PushBack({ 29, 6, 21, 30 });
-	idle_right.PushBack({ 79, 6, 21, 30 });
-	idle_right.PushBack({ 129, 6, 21, 30 });
-	idle_right.PushBack({ 179, 6, 21, 30 });
+	idle_right.PushBack({ 5, 4, 43, 48 });
+	idle_right.PushBack({ 50, 4, 43, 48 });
+	idle_right.PushBack({ 94, 5, 43, 48 });
+	idle_right.PushBack({ 139, 4, 43, 48 });
 	idle_right.speed = 0.05f;
 	idle_right.loop = true;
 
 	//idle left animation
-	idle_left.PushBack({ 332, 988, 21, 30 });
-	idle_left.PushBack({ 282, 988, 21, 30 });
-	idle_left.PushBack({ 232, 988, 21, 30 });
-	idle_left.PushBack({ 182, 988, 21, 30 });
+	idle_left.PushBack({ 960, 891, 43, 49 });
+	idle_left.PushBack({ 915, 891,  43, 49 });
+	idle_left.PushBack({ 871, 892, 43, 49 });
+	idle_left.PushBack({ 826, 891, 43, 49 });
 	idle_left.speed = 0.05f;
 	idle_left.loop = true;
 
 	//running right animation
-	running_right.PushBack({ 82, 45, 25, 28 });
-	running_right.PushBack({ 132, 45, 25, 28 });
-	running_right.PushBack({ 182, 45, 25, 28 });
-	running_right.PushBack({ 231, 45, 25, 28 });
-	running_right.PushBack({ 281, 45, 25, 28 });
-	running_right.PushBack({ 332, 45, 25, 28 });
+	running_right.PushBack({ 43, 164, 50, 48 });
+	running_right.PushBack({ 94, 163,50, 48 });
+	running_right.PushBack({ 151, 164, 50, 48 });
+	running_right.PushBack({ 204, 164, 50, 48 });
+	running_right.PushBack({ 260, 163, 50, 48 });
+	running_right.PushBack({ 361, 161, 50, 48 });
+	running_right.PushBack({ 414, 163, 50, 48 });
 	running_right.speed = 0.1f;
 	running_right.loop = true;
 
 	//running left animation
-	running_left.PushBack({ 275, 1027, 25, 28 });
-	running_left.PushBack({ 225, 1027, 25, 28 });
-	running_left.PushBack({ 175, 1027, 25, 28 });
-	running_left.PushBack({ 126, 1027, 25, 28 });
-	running_left.PushBack({ 76, 1027, 25, 28 });
-	running_left.PushBack({ 25, 1027, 25, 28 });
-	running_left.speed = 0.1f;
+	running_left.PushBack({ 915, 1051, 50, 48 });
+	running_left.PushBack({ 863, 1050, 50, 48 });
+	running_left.PushBack({ 807, 1050, 50, 48 });
+	running_left.PushBack({ 752, 1050, 50, 48 });
+	running_left.PushBack({ 700, 1050, 50, 48 });
+	running_left.PushBack({ 644, 1049, 50, 48 });
+	running_left.PushBack({ 593, 1049, 50, 48 });
+	running_left.speed = 0.2f;
 	running_left.loop = true;
 
 	//die right animation
@@ -364,7 +366,7 @@ bool ModulePlayer::Save(pugi::xml_node& data) const
 
 void ModulePlayer::LoadTexture()
 {
-	texture = App->tex->Load("textures/Player/player_spritesheet.png");
+	texture = App->tex->Load("textures/Player/spritesheetplayer.png");
 }
 
 int ModulePlayer::GetPlayerTile(fPoint pos) const
@@ -385,15 +387,15 @@ COLLISION_TYPE ModulePlayer::CheckCollision(int x) const
 	default:
 		break;
 
-	case 25:
+	case 57:
 		return COLLISION_TYPE::GROUND;
 		break;
 
-	case 26:
+	case 59:
 		return COLLISION_TYPE::DEATH;
 		break;
 
-	case 34:
+	case 81:
 		return COLLISION_TYPE::WIN;
 		break;
 	}	
@@ -406,7 +408,7 @@ void ModulePlayer::FindPlayerSpawn()
 	p2List_item<MapLayer*>* layer = App->map->data.layers.end;
 	for (int i = 0; i < (layer->data->width * layer->data->height); i++)
 	{
-		if (layer->data->data[i] == 27)
+		if (layer->data->data[i] == 82)
 		{
 			spawn = App->map->TileToWorld(i);
 		}
