@@ -12,6 +12,41 @@
 ModulePlayer::ModulePlayer()
 {
 	name.create("player");
+	////idle right animation
+	//idle_right.PushBack({ 29, 6, 21, 30 });
+	//idle_right.PushBack({ 79, 6, 21, 30 });
+	//idle_right.PushBack({ 129, 6, 21, 30 });
+	//idle_right.PushBack({ 179, 6, 21, 30 });
+	//idle_right.speed = 0.05f;
+	//idle_right.loop = true;
+
+	////idle left animation
+	//idle_left.PushBack({ 332, 988, 21, 30 });
+	//idle_left.PushBack({ 282, 988, 21, 30 });
+	//idle_left.PushBack({ 232, 988, 21, 30 });
+	//idle_left.PushBack({ 182, 988, 21, 30 });
+	//idle_left.speed = 0.05f;
+	//idle_left.loop = true;
+
+	////running right animation
+	//running_right.PushBack({ 82, 45, 25, 28 });
+	//running_right.PushBack({ 132, 45, 25, 28 });
+	//running_right.PushBack({ 182, 45, 25, 28 });
+	//running_right.PushBack({ 231, 45, 25, 28 });
+	//running_right.PushBack({ 281, 45, 25, 28 });
+	//running_right.PushBack({ 332, 45, 25, 28 });
+	//running_right.speed = 0.1f;
+	//running_right.loop = true;
+
+	////running left animation
+	//running_left.PushBack({ 275, 1027, 25, 28 });
+	//running_left.PushBack({ 225, 1027, 25, 28 });
+	//running_left.PushBack({ 175, 1027, 25, 28 });
+	//running_left.PushBack({ 126, 1027, 25, 28 });
+	//running_left.PushBack({ 76, 1027, 25, 28 });
+	//running_left.PushBack({ 25, 1027, 25, 28 });
+	//running_left.speed = 0.1f;
+	//running_left.loop = true;
 
 	//idle right animation
 	idle_right.PushBack({ 5, 4, 43, 48 });
@@ -200,6 +235,12 @@ bool ModulePlayer::Update(float dt)
 			App->audio->PlayFx(2);
 			SpawnPLayer();
 		}
+		else if (CheckCollision(GetPlayerTile({ tempPos.x + 5, tempPos.y - animation->GetCurrentFrame().h })) == COLLISION_TYPE::DEATH
+			&& CheckCollision(GetPlayerTile({ tempPos.x + 10, tempPos.y - animation->GetCurrentFrame().h })) == COLLISION_TYPE::DEATH)
+		{
+			App->audio->PlayFx(2);
+			SpawnPLayer();
+		}
 
 
 		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
@@ -215,7 +256,7 @@ bool ModulePlayer::Update(float dt)
 				if (is_falling == false)
 					animation = &running_right;
 			}
-			else if (CheckCollision(GetPlayerTile({ tempPos.x + animation->GetCurrentFrame().w, tempPos.y })) == COLLISION_TYPE::GROUND
+			else if (CheckCollision(GetPlayerTile({ tempPos.x + animation->GetCurrentFrame().w, tempPos.y + animation->GetCurrentFrame().h ,  })) == COLLISION_TYPE::GROUND
 				&& CheckCollision(GetPlayerTile({ tempPos.x + animation->GetCurrentFrame().w, tempPos.y + animation->GetCurrentFrame().h })) == COLLISION_TYPE::GROUND
 				&& is_falling)
 			{
@@ -237,6 +278,7 @@ bool ModulePlayer::Update(float dt)
 			tempPos = playerData.pos;
 
 			tempPos.x -= playerData.speed;
+
 			if (CheckCollision(GetPlayerTile({ tempPos.x, tempPos.y })) == COLLISION_TYPE::AIR
 				&& CheckCollision(GetPlayerTile({ tempPos.x, tempPos.y + animation->GetCurrentFrame().h })) == COLLISION_TYPE::AIR)
 			{

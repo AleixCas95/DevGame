@@ -31,8 +31,8 @@ struct PlayerData
 	fPoint pos;
 
 	float speed = 2.0f;
-	float jumpSpeed = 2.0f;
-	float gravity = 3.0f;
+	float jumpSpeed = 3.0f;
+	float gravity = 2.8f;
 
 	ANIMATION_STATE anim_state;
 };
