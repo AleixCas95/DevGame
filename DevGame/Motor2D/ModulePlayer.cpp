@@ -12,48 +12,14 @@
 ModulePlayer::ModulePlayer()
 {
 	name.create("player");
-	////idle right animation
-	//idle_right.PushBack({ 29, 6, 21, 30 });
-	//idle_right.PushBack({ 79, 6, 21, 30 });
-	//idle_right.PushBack({ 129, 6, 21, 30 });
-	//idle_right.PushBack({ 179, 6, 21, 30 });
-	//idle_right.speed = 0.05f;
-	//idle_right.loop = true;
 
-	////idle left animation
-	//idle_left.PushBack({ 332, 988, 21, 30 });
-	//idle_left.PushBack({ 282, 988, 21, 30 });
-	//idle_left.PushBack({ 232, 988, 21, 30 });
-	//idle_left.PushBack({ 182, 988, 21, 30 });
-	//idle_left.speed = 0.05f;
-	//idle_left.loop = true;
-
-	////running right animation
-	//running_right.PushBack({ 82, 45, 25, 28 });
-	//running_right.PushBack({ 132, 45, 25, 28 });
-	//running_right.PushBack({ 182, 45, 25, 28 });
-	//running_right.PushBack({ 231, 45, 25, 28 });
-	//running_right.PushBack({ 281, 45, 25, 28 });
-	//running_right.PushBack({ 332, 45, 25, 28 });
-	//running_right.speed = 0.1f;
-	//running_right.loop = true;
-
-	////running left animation
-	//running_left.PushBack({ 275, 1027, 25, 28 });
-	//running_left.PushBack({ 225, 1027, 25, 28 });
-	//running_left.PushBack({ 175, 1027, 25, 28 });
-	//running_left.PushBack({ 126, 1027, 25, 28 });
-	//running_left.PushBack({ 76, 1027, 25, 28 });
-	//running_left.PushBack({ 25, 1027, 25, 28 });
-	//running_left.speed = 0.1f;
-	//running_left.loop = true;
 
 	//idle right animation
-	idle_right.PushBack({ 5, 4, 43, 48 });
-	idle_right.PushBack({ 50, 4, 43, 48 });
-	idle_right.PushBack({ 94, 5, 43, 48 });
-	idle_right.PushBack({ 139, 4, 43, 48 });
-	idle_right.speed = 0.05f;
+	idle_right.PushBack({ 361, 2, 31, 31 });
+	idle_right.PushBack({ 392, 2, 31, 31 });
+	idle_right.PushBack({ 426, 2, 31, 31 });
+	idle_right.PushBack({ 0, 51, 28, 32 });
+	idle_right.speed = 0.02f;
 	idle_right.loop = true;
 
 	//idle left animation
@@ -408,7 +374,7 @@ bool ModulePlayer::Save(pugi::xml_node& data) const
 
 void ModulePlayer::LoadTexture()
 {
-	texture = App->tex->Load("textures/Player/spritesheetplayer.png");
+	texture = App->tex->Load("textures/Player/spritesheetsmain.png");
 }
 
 int ModulePlayer::GetPlayerTile(fPoint pos) const
