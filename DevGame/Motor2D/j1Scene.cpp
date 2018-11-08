@@ -95,6 +95,8 @@ bool j1Scene::Update(float dt)
 	if (App->player->god_mode)
 		camera_speed = 4;
 
+	//App->render->camera.y = -550;
+
 	if (App->player->playerData.pos.x - (-App->render->camera.x + (1 * App->render->camera.w / 2)) >= 0) 
 	{
 		if (App->render->camera.x - App->render->camera.w > -(App->map->data.width*App->map->data.tile_width))

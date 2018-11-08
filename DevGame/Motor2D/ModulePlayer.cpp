@@ -14,45 +14,48 @@ ModulePlayer::ModulePlayer()
 	name.create("player");
 
 
-	//idle right animation
-	idle_right.PushBack({ 361, 2, 31, 31 });
-	idle_right.PushBack({ 392, 2, 31, 31 });
-	idle_right.PushBack({ 426, 2, 31, 31 });
-	idle_right.PushBack({ 0, 51, 28, 32 });
-	idle_right.speed = 0.02f;
+	//idle right animation  //DONE
+
+	idle_right.PushBack({ 361,2,29,30});
+	idle_right.PushBack({ 394,2,29,30});
+	idle_right.PushBack({427,2,29,30 });
+	idle_right.speed = 0.01f;
 	idle_right.loop = true;
 
-	//idle left animation
-	idle_left.PushBack({ 960, 891, 43, 49 });
-	idle_left.PushBack({ 915, 891,  43, 49 });
-	idle_left.PushBack({ 871, 892, 43, 49 });
-	idle_left.PushBack({ 826, 891, 43, 49 });
-	idle_left.speed = 0.05f;
+	//idle left animation //DONE
+
+	idle_left.PushBack({ 690,2,29,30 });
+	idle_left.PushBack({ 657,2,29,30 });
+	idle_left.PushBack({ 624,2,29,30 });
+	idle_left.speed = 0.01f;
 	idle_left.loop = true;
 
-	//running right animation
-	running_right.PushBack({ 43, 164, 50, 48 });
-	running_right.PushBack({ 94, 163,50, 48 });
-	running_right.PushBack({ 151, 164, 50, 48 });
-	running_right.PushBack({ 204, 164, 50, 48 });
-	running_right.PushBack({ 260, 163, 50, 48 });
-	running_right.PushBack({ 361, 161, 50, 48 });
-	running_right.PushBack({ 414, 163, 50, 48 });
+	//running right animation DONE
+	
+	running_right.PushBack({ 29,53,31,29 });
+	running_right.PushBack({ 61,54,32,28 });
+	running_right.PushBack({ 103,54,32,38});
+	running_right.PushBack({ 139,53,29,29 });
+	running_right.PushBack({ 170,52,31,30 });
+	running_right.PushBack({ 205,54,32,28 });
+	running_right.PushBack({ 242,55,31,27});
+	running_right.PushBack({ 278,54,28,28 });
 	running_right.speed = 0.1f;
 	running_right.loop = true;
 
-	//running left animation
-	running_left.PushBack({ 915, 1051, 50, 48 });
-	running_left.PushBack({ 863, 1050, 50, 48 });
-	running_left.PushBack({ 807, 1050, 50, 48 });
-	running_left.PushBack({ 752, 1050, 50, 48 });
-	running_left.PushBack({ 700, 1050, 50, 48 });
-	running_left.PushBack({ 644, 1049, 50, 48 });
-	running_left.PushBack({ 593, 1049, 50, 48 });
+	//running left animation DONE
+	running_left.PushBack({ 1020,53,31,29 });
+	running_left.PushBack({ 983,54,32,28 });
+	running_left.PushBack({ 945,54,32,28 });
+	running_left.PushBack({ 912,53,29,29 });
+	running_left.PushBack({ 879,52,31,30 });
+	running_left.PushBack({ 843,54,32,28 });
+	running_left.PushBack({ 807,55,31,27 });
+	running_left.PushBack({ 774,54,28,28 });
 	running_left.speed = 0.2f;
 	running_left.loop = true;
 
-	//die right animation
+	//die right animation TO DO
 	
 	die_right.PushBack({ 33,334,19,24 });
 	die_right.PushBack({ 81,345,19,24 });
@@ -64,7 +67,7 @@ ModulePlayer::ModulePlayer()
 	die_right.loop = false;
 
 
-	//die left animation
+	//die left animation TO DO
 
 	die_left.PushBack({ 330,1327,19,24 });
 	die_left.PushBack({ 282,1326,19,24 });
@@ -76,7 +79,7 @@ ModulePlayer::ModulePlayer()
 	die_left.loop = false;
 
 
-	//slide right animation
+	//slide right animation TO DO
 
 	slide_right.PushBack({ 171,130,34,17 });
 	slide_right.PushBack({ 221,130,34,17 });
@@ -85,7 +88,7 @@ ModulePlayer::ModulePlayer()
 	slide_right.speed = 0.01f;
 	slide_right.loop = true;
 
-	//slide left animation
+	//slide left animation TO DO
 
 	slide_left.PushBack({ 177,1112,34,17 });
 	slide_left.PushBack({ 127,1112,34,17 });
@@ -94,50 +97,42 @@ ModulePlayer::ModulePlayer()
 	slide_left.speed = 0.1f;
 	slide_left.loop = true;
 
-	//fall right animation
-	
-	fall_right.PushBack({ 84,112,17,31 });
-	fall_right.PushBack({ 134,112,17,31 });
+	//fall right animation done
+	fall_right.PushBack({ 475,37,23,42 });
 	fall_right.speed = 0.1f;
 	fall_right.loop = true;
 
-	//fall left animation
-
-	fall_left.PushBack({ 281,1094,17,31 });
-	fall_left.PushBack({ 231,1094,17,31 });
+	//fall left animation done
+	fall_left.PushBack({ 582,37,23,42 });
 	fall_left.speed = 0.1f;
 	fall_left.loop = true;
 
 
-	//jumping left animation
-	jumping_left.PushBack({ 331, 1061, 20, 27 });
-	jumping_left.PushBack({ 281, 1061, 20, 27 });
-	jumping_left.PushBack({ 230, 1061, 19, 27 });
-	jumping_left.PushBack({ 181, 1061, 21, 27 });
-	jumping_left.PushBack({ 133, 1061, 15, 27 });
-	jumping_left.PushBack({  78, 1061, 24, 27 });
-	jumping_left.PushBack({  28, 1061, 18, 27 });
-	jumping_left.PushBack({ 329, 1106, 26, 27 });
-	jumping_left.speed = 0.2f;
+	//jumping left animation done
+	jumping_left.PushBack({ 708,50,23,32 });
+	jumping_left.PushBack({ 673,49,30,32 });
+	jumping_left.PushBack({ 639,42,29,37 });
+	jumping_left.PushBack({ 611,37,23,42 });
+	jumping_left.PushBack({ 582,37,23,42 });
+	jumping_left.speed = 0.1f;
 	jumping_left.loop = false;
 
-	//jumping right animation
-	jumping_right.PushBack({ 31, 79, 20, 27 });
-	jumping_right.PushBack({ 81, 79, 20, 27 });
-	jumping_right.PushBack({ 133, 79, 19, 27 });
-	jumping_right.PushBack({ 180, 79, 21, 27 });
-	jumping_right.PushBack({ 234, 79, 15, 27 });
-	jumping_right.PushBack({ 280, 79, 24, 27 });
-	jumping_right.PushBack({ 336, 79, 18, 27 });
-	jumping_right.PushBack({ 27, 124, 26, 27 });
-	jumping_right.speed = 0.2f;
+	//jumping right animation DONE
+	//jumping_right.PushBack({ 314,53,31,29 });
+	jumping_right.PushBack({ 349,50,23,32 });
+	jumping_right.PushBack({ 377,49,30,32 });
+	jumping_right.PushBack({ 412,42,29,37 });
+	jumping_right.PushBack({ 446,37,23,42 });
+	jumping_right.PushBack({ 475,37,23,42 });
+	//jumping_right.PushBack({ 505,54,30,29 });
+	jumping_right.speed = 0.1f;
 	jumping_right.loop = false;
 
-	//wall slide right animation
+	//wall slide right animation TO DO
 	wall_slide_right.PushBack({ 182, 409, 17, 32 });
 	wall_slide_right.PushBack({ 132, 409, 17, 32 });
 
-	//wall slide left animation
+	//wall slide left animation TO DO
 	wall_slide_left.PushBack({ 183, 1391, 17, 32 });
 	wall_slide_left.PushBack({ 233, 1391, 17, 32 });
 
