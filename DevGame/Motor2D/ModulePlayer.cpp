@@ -128,15 +128,7 @@ ModulePlayer::ModulePlayer()
 	jumping_right.speed = 0.1f;
 	jumping_right.loop = false;
 
-	//wall slide right animation TO DO
-	wall_slide_right.PushBack({ 182, 409, 17, 32 });
-	wall_slide_right.PushBack({ 132, 409, 17, 32 });
-
-	//wall slide left animation TO DO
-	wall_slide_left.PushBack({ 183, 1391, 17, 32 });
-	wall_slide_left.PushBack({ 233, 1391, 17, 32 });
-
-
+	
 	/*App->audio->fx.add[1] = App->audio->LoadFx("audio/fx/JumpFx.wav");
 	App->audio->fx.add[2] = App->audio->LoadFx("audio/fx/HurtFx.wav");*/
 }
@@ -217,13 +209,7 @@ bool ModulePlayer::Update(float dt)
 				if (is_falling == false)
 					animation = &running_right;
 			}
-			else if (CheckCollision(GetPlayerTile({ tempPos.x + animation->GetCurrentFrame().w, tempPos.y + animation->GetCurrentFrame().h ,  })) == COLLISION_TYPE::GROUND
-				&& CheckCollision(GetPlayerTile({ tempPos.x + animation->GetCurrentFrame().w, tempPos.y + animation->GetCurrentFrame().h })) == COLLISION_TYPE::GROUND
-				&& is_falling)
-			{
-				animation = &wall_slide_right;
-				can_jump = true;
-			}
+			
 			else if (CheckCollision(GetPlayerTile({ tempPos.x + animation->GetCurrentFrame().w, tempPos.y })) == COLLISION_TYPE::WIN
 				&& CheckCollision(GetPlayerTile({ tempPos.x + animation->GetCurrentFrame().w, tempPos.y + animation->GetCurrentFrame().h })) == COLLISION_TYPE::WIN)
 			{
@@ -248,13 +234,7 @@ bool ModulePlayer::Update(float dt)
 				if (is_falling == false)
 					animation = &running_left;
 			}
-			else if (CheckCollision(GetPlayerTile({ tempPos.x, tempPos.y })) == COLLISION_TYPE::GROUND
-				&& CheckCollision(GetPlayerTile({ tempPos.x, tempPos.y + animation->GetCurrentFrame().h })) == COLLISION_TYPE::GROUND
-				&& is_falling)
-			{
-				animation = &wall_slide_left;
-				can_jump = true;
-			}
+			
 			looking_left = true;
 			looking_right = false;
 		}

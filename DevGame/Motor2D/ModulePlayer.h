@@ -78,9 +78,7 @@ public:
 	Animation slide_left = Animation();
 	Animation fall_right = Animation();
 	Animation fall_left = Animation();
-	Animation wall_slide_right = Animation();
-	Animation wall_slide_left = Animation();
-
+	
 	PlayerData playerData;
 
 	int cont = 0;
