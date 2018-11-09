@@ -5,6 +5,8 @@
 
 struct SDL_Texture;
 
+struct EntityPlayer;
+
 class j1Scene : public j1Module
 {
 public:
@@ -41,6 +43,8 @@ public:
 	bool Save(pugi::xml_node& data) const;
 
 	int currmap = 1;
+
+	EntityPlayer* player = nullptr;
 
 private:
 

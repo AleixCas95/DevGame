@@ -14,8 +14,9 @@
 Entity::Entity(int x, int y, ENTITY_TYPE type): pos(x,y),type(type){}
 
 Entity::~Entity(){
-	App->tex->UnLoad(texture);
 
+	App->tex->UnLoad(texture);
+	
 }
 
 COLLISION_TYPE Entity::CheckCollision(int x)const{
@@ -47,9 +48,11 @@ COLLISION_TYPE Entity::CheckCollision(int x)const{
 
 void Entity::Draw(){
 
-	SDL_Rect rect_animation = animation->GetCurrentFrame();
+	
 
 	if (animation != nullptr) {
+
+		SDL_Rect rect_animation = animation->GetCurrentFrame();
 
 		if (fliptexture == true) {
 

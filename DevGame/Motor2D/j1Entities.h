@@ -31,6 +31,8 @@ public:
 	bool Update(float dt);
 	bool CleanUp();
 	bool SpawnEntity(int x, int y,ENTITY_TYPE type);
+	
+	EntityPlayer* SpawnPlayer(int x, int y);
 
 	EntityPlayer* GetPlayer()const;
 

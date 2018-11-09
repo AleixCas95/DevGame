@@ -49,16 +49,16 @@ bool j1Entities::Update(float dt) {
 
 	for (int i = 0; i < entities.count(); ++i) {
 
-		if (entities[i] != nullptr) {
+		if (entities.At(i) != nullptr) {
 
-			entities[i]->Update(dt);
+			entities.At(i)->data->Update(dt); 
 		}
 	}
 	for (int i = 0; i < entities.count(); ++i) {
 
-		if (entities[i] != nullptr) {
+		if (entities.At(i) != nullptr) {
 
-			entities[i]->Draw();
+			entities.At(i)->data->Draw();  
 		}	
 	}
 	return true;
@@ -68,7 +68,7 @@ bool j1Entities::CleanUp() {
 	
 	for (p2List_item<Entity*>* item = entities.start; item != nullptr; item = item->next) {
 
-			delete(item);
+			delete(item->data);
 			entities.del(item);
 		}
 	return true;
@@ -78,7 +78,7 @@ bool j1Entities::SpawnEntity(int x, int y,ENTITY_TYPE type) {
 
 	bool ret = false;
 
-	/*switch (type) {
+	switch (type) {
 
 	case ENTITY_TYPE::PLAYER: {
 
@@ -90,21 +90,29 @@ bool j1Entities::SpawnEntity(int x, int y,ENTITY_TYPE type) {
 	default: 
 
 		break; 
-	}*/
+	}
 
 	return ret;
 
+}
+
+EntityPlayer * j1Entities::SpawnPlayer(int x, int y)
+{
+	EntityPlayer* entityPlayer = new EntityPlayer(x, y, PLAYER);
+	entities.add(entityPlayer);
+
+	return entityPlayer;
 }
 
 EntityPlayer* j1Entities::GetPlayer()const{
 
 	for (uint i = 0; i < entities.count(); ++i) {
 
-		if (entities[i] != nullptr) {
+		if (entities.At(i) != nullptr) {
 
-			if (entities[i]->type == PLAYER) {
+			if (entities.At(i)->data->type == PLAYER) {
 
-				return(EntityPlayer*)entities[i];
+				return(EntityPlayer*)entities.At(i);
 			}
 		}
 	}
