@@ -158,6 +158,11 @@ bool EntityPlayer::Start()
 
 bool EntityPlayer::Update(float dt)
 {
+
+	//if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
+	//	App->fade->FadeToBlack(App->scene, App->scene, 0.5f);
+	//}
+
 	if (looking_right)
 		animation = &idle_right;
 	else if (looking_left)

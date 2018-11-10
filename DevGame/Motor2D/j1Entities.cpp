@@ -68,7 +68,7 @@ bool j1Entities::CleanUp() {
 	
 	for (p2List_item<Entity*>* item = entities.start; item != nullptr; item = item->next) {
 
-			delete(item->data);
+			delete(item);
 			entities.del(item);
 		}
 	return true;

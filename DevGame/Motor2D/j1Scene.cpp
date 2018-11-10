@@ -48,7 +48,8 @@ bool j1Scene::Start()
 
 
 	App->map->Load(CurrentMap->data);
-	player= App->entities->SpawnPlayer(0, 0);
+	App->entities->player= App->entities->SpawnPlayer(0, 0);
+	//App->entities->entities.add(App->entities->player);
 	App->audio->PlayMusic("audio/music/Mushroom_Theme.ogg");
 	
 
@@ -92,26 +93,26 @@ bool j1Scene::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN) {
 
 		
-		player->god_mode = !player->god_mode;
-		player->is_falling = true;
-		player->is_jumping = false;
+		App->entities->player->god_mode = !App->entities->player->god_mode;
+		App->entities->player->is_falling = true;
+		App->entities->player->is_jumping = false;
 
 	}
 
 	int camera_speed = 2;
 
-	if (player->god_mode)
+	if (App->entities->player->god_mode)
 		camera_speed = 4;
 
 	//App->render->camera.y = -550;
 
-	if (player->pos.x - (-App->render->camera.x + (1 * App->render->camera.w / 2)) >= 0)
+	if (App->entities->player->pos.x - (-App->render->camera.x + (1 * App->render->camera.w / 2)) >= 0)
 	{
 		if (App->render->camera.x - App->render->camera.w > -(App->map->data.width*App->map->data.tile_width))
 			App->render->camera.x -= camera_speed;
 	}
 
-	if (player->pos.x - (-App->render->camera.x + (1 * App->render->camera.w / 2)) <= 0)
+	if (App->entities->player->pos.x - (-App->render->camera.x + (1 * App->render->camera.w / 2)) <= 0)
 	{
 		if (App->render->camera.x < 0)
 			App->render->camera.x += camera_speed;
@@ -122,10 +123,10 @@ bool j1Scene::Update(float dt)
 
 	//FadeToBlack
 
-	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	/*if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
 		App->fade->FadeToBlack(App->map, App->map,1.5f);
-	}
+	}*/
 
 	//App->render->Blit(img, 0, 0);
 	App->map->Draw();
@@ -157,7 +158,9 @@ bool j1Scene::PostUpdate()
 bool j1Scene::CleanUp()
 {
 
-	player = nullptr;
+	App->entities->player->destroy_entity = true;
+
+	App->entities->player = nullptr;
 
 
 	LOG("Freeing scene");
@@ -168,7 +171,7 @@ bool j1Scene::LoadScene(int map)
 {
 	App->map->CleanUp();
 	App->tex->FreeTextures();
-	player->LoadTexture();
+	App->entities->player->LoadTexture();
 
 	if (map == -1) {
 
@@ -198,8 +201,8 @@ bool j1Scene::LoadScene(int map)
 
 	}
 	App->map->Load(CurrentMap->data);
-	player->FindPlayerSpawn();
-	player->SpawnPLayer();
+	App->entities->player->FindPlayerSpawn();
+	App->entities->player->SpawnPLayer();
 
 	return true;
 }

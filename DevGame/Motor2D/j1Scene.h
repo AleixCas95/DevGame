@@ -44,7 +44,7 @@ public:
 
 	int currmap = 1;
 
-	EntityPlayer* player = nullptr;
+
 
 private:
 

@@ -38,7 +38,7 @@ public:
 
 public:
 	p2List<Entity*> entities;
-
+	EntityPlayer* player = nullptr;
 
 };
 

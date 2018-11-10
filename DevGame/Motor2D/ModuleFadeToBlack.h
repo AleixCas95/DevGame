@@ -11,7 +11,7 @@ public:
 	~ModuleFadeToBlack();
 
 	bool Start();
-	bool Update();
+	bool Update(float dt);
 	bool FadeToBlack(j1Module* module_off, j1Module* module_on, float time = 2.0f);
 
 private:
@@ -26,8 +26,8 @@ private:
 	Uint32 start_time = 0;
 	Uint32 total_time = 0;
 	SDL_Rect screen;
-	j1App* ModuleOff = nullptr;
-	j1App* ModuleOn = nullptr;
+	j1Module* ModuleOff = nullptr;
+	j1Module* ModuleOn = nullptr;
 
 };
 
