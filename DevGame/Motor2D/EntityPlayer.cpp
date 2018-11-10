@@ -133,6 +133,16 @@ EntityPlayer::EntityPlayer(int x, int y, ENTITY_TYPE type) : Entity(x, y, type)
 	jumping_right.speed = 0.1f;
 	jumping_right.loop = false;
 
+
+	//attack right done
+	attack_right.PushBack({67,557,40,30});
+	attack_right.PushBack({115,558,53,30});
+	attack_right.PushBack({177,559,53,29});
+	attack_right.PushBack({235,559,45,29});
+	attack_right.speed = 0.1f;
+	attack_right.loop = false;
+
+
 	Start();
 
 	/*App->audio->fx.add[1] = App->audio->LoadFx("audio/fx/JumpFx.wav");
@@ -262,6 +272,15 @@ bool EntityPlayer::Update(float dt)
 			is_jumping = true;
 			cont = 0;
 		}
+
+		//attack right
+
+		if ((App->input->GetKey(SDL_SCANCODE_G) == KEY_REPEAT)) 
+		{
+				animation = &attack_right;
+			
+		}
+
 		if (is_jumping)
 		{
 			tempPos = pos;
@@ -332,6 +351,7 @@ bool EntityPlayer::Update(float dt)
 			animation = &running_left;
 		}
 	}
+	
 	cont++;
 	return true;
 }

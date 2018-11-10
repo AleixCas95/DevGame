@@ -71,14 +71,18 @@ public:
 	Animation slide_left = Animation();
 	Animation fall_right = Animation();
 	Animation fall_left = Animation();
+	Animation attack_right = Animation();
 
 	PlayerData playerData;
 
 	int cont = 0;
+	uint attack_cont = 0;
 
 	bool is_jumping;
 	bool is_falling;
 	bool can_jump;
+	bool is_attacking;
+	bool can_attack;
 
 	bool looking_right = false;
 	bool looking_left = false;
