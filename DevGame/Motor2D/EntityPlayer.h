@@ -25,6 +25,7 @@ struct PlayerData
 	float speed = 2.0f;
 	float jumpSpeed = 3.0f;
 	float gravity = 2.8f;
+	float attackSpeed = 2.0f;
 
 
 };
@@ -78,7 +79,7 @@ public:
 	PlayerData playerData;
 
 	int cont = 0;
-	uint attack_cont = 0;
+	int attack_cont = 0;
 
 	bool is_jumping;
 	bool is_falling;

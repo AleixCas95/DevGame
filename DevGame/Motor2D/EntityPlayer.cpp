@@ -26,7 +26,7 @@ EntityPlayer::EntityPlayer(int x, int y, ENTITY_TYPE type) : Entity(x, y, type)
 	{
 		std::string ent(animations.attribute("name").as_string());
 
-		if (ent == "idle right")
+		if (ent == "idle_right")
 			LoadAnimation(animations, &idle_right);
 		else if (ent == "idle_left")
 			LoadAnimation(animations, &idle_left);
@@ -178,14 +178,6 @@ bool EntityPlayer::Update(float dt)
 			cont = 0;
 		}
 
-		//attack right
-
-		if ((App->input->GetKey(SDL_SCANCODE_G) == KEY_REPEAT)) 
-		{
-				animation = &attack_right;
-			
-		}
-
 		if (is_jumping)
 		{
 			tempPos = pos;
@@ -206,7 +198,8 @@ bool EntityPlayer::Update(float dt)
 				is_jumping = false;
 			}
 		}
-
+		
+	
 		/*if (App->input->GetKey(SDL_SCANCODE_C) == KEY_REPEAT)
 		{
 		tempPos = playerData.pos;
@@ -256,7 +249,14 @@ bool EntityPlayer::Update(float dt)
 			animation = &running_left;
 		}
 	}
-	
+
+	//attack right
+
+
+	if ((App->input->GetKey(SDL_SCANCODE_G) == KEY_DOWN))
+	{
+		animation = &attack_right;
+	}
 	cont++;
 	return true;
 }
