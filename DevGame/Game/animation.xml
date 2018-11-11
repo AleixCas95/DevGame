@@ -58,9 +58,114 @@
       <frame x="115" y="558" w="53" h="30"/>
       <frame x="177" y="559" w="53" h="29"/>
       <frame x="235" y="559" w="45" h="29"/>
-  
+    </animation>
+ <animation name="attack_left" speed="0.1.f" loop="false">
+      <frame x="973" y="557" w="39" h="30"/>
+      <frame x="912" y="558" w="53" h="30"/>
+      <frame x="850" y="559" w="53" h="29"/>
+      <frame x="800" y="559" w="44" h="29"/>
     </animation>
     </animations>
-   
-  </player>
+    </player>
+
+<enemies>
+<groundenemy>
+    <animation name="idleright" speed="0.01f" loop="true">
+      <frame x="361" y="2" w="29" h="30"/>
+      <frame x="364" y="2" w="29" h="30"/>
+      <frame x="427" y="2" w="29" h="30"/>
+    </animation>
+    <animation name="idleleft" speed="0.01f" loop="true">
+      <frame x="690" y="2" w="29" h="30"/>
+      <frame x="657" y="2" w="29" h="30"/>
+      <frame x="624" y="2" w="29" h="30"/>
+    </animation>
+ <animation name="runningright" speed="0.1f" loop="true">
+      <frame x="29" y="53" w="31" h="29"/>
+      <frame x="61" y="54" w="32" h="28"/>
+      <frame x="103" y="54" w="32" h="38"/>
+      <frame x="139" y="53" w="29" h="29"/>
+      <frame x="170" y="52" w="31" h="30"/>
+      <frame x="205" y="54" w="32" h="28"/>
+      <frame x="242" y="55" w="31" h="27"/>
+      <frame x="278" y="54" w="28" h="28"/>
+    </animation>
+    <animation name="runningleft" speed="0.1f" loop="true">
+      <frame x="1020" y="53" w="31" h="29"/>
+      <frame x="983" y="54" w="32" h="28"/>
+      <frame x="945" y="54" w="32" h="28"/>
+      <frame x="912" y="53" w="29" h="29"/>
+      <frame x="879" y="52" w="31" h="30"/>
+      <frame x="843" y="54" w="32" h="28"/>
+      <frame x="807" y="55" w="31" h="27"/>
+      <frame x="774" y="54" w="28" h="28"/>
+    </animation>
+    <animation name="fallright" speed="0.01f" loop="true">
+      <frame x="475" y="37" w="23" h="42"/>
+    </animation>
+    <animation name="fallleft" speed="0.01f" loop="true">
+      <frame x="582" y="37" w="23" h="42"/>
+    </animation>
+    <animation name="jumpingleft" speed="0.1f" loop="false">
+      <frame x="708" y="50" w="23" h="32"/>
+      <frame x="673" y="49" w="30" h="32"/>
+      <frame x="639" y="42" w="29" h="37"/>
+      <frame x="611" y="37" w="23" h="42"/>
+      <frame x="582" y="37" w="23" h="42"/>
+    </animation>
+    <animation name="jumpingright" speed="0.1f" loop="false">
+      <frame x="349" y="50" w="23" h="32"/>
+      <frame x="377" y="49" w="30" h="32"/>
+      <frame x="412" y="42" w="29" h="37"/>
+      <frame x="446" y="37" w="23" h="42"/>
+      <frame x="475" y="37" w="23" h="42"/>
+    </animation>
+    <animation name="attackright" speed="0.1.f" loop="false">
+      <frame x="67" y="557" w="40" h="30"/>
+      <frame x="115" y="558" w="53" h="30"/>
+      <frame x="177" y="559" w="53" h="29"/>
+      <frame x="235" y="559" w="45" h="29"/>
+ <animation name="attackleft" speed="0.1.f" loop="false">
+      <frame x="973" y="557" w="39" h="30"/>
+      <frame x="912" y="558" w="53" h="30"/>
+      <frame x="850" y="559" w="53" h="29"/>
+      <frame x="800" y="559" w="44" h="29"/>
+    </animation>
+</groundenemy>
+
+<airenemy>
+<animation name="idle" speed="0.01f" loop="true">
+      <frame x="97" y="0" w="31" h="22"/>
+      <frame x="65" y="1" w="31" h="22"/>
+      <frame x="34" y="5" w="31" h="22"/>
+    </animation>
+    <animation name="flyingright" speed="0.01f" loop="true">
+      <frame x="36" y="33" w="26" h="21"/>
+      <frame x="66" y="33" w="26" h="21"/>
+      <frame x="100" y="38" w="26" h="21"/>
+    </animation>
+  <animation name="flyingleft" speed="0.01f" loop="true">
+      <frame x="36" y="97" w="26" h="21"/>
+      <frame x="65" y="97" w="26" h="21"/>
+      <frame x="95" y="102" w="26" h="21"/>
+    </animation>
+  <animation name="dyingfront" speed="0.01f" loop="true">
+      <frame x="97" y="0" w="31" h="22"/>
+      <frame x="65" y="1" w="31" h="22"/>
+      <frame x="34" y="5" w="31" h="22"/>
+      <frame x="3" y="19" w="26" h="12"/>
+  <animation name="dyingright" speed="0.01f" loop="true">
+      <frame x="36" y="33" w="26" h="21"/>
+      <frame x="66" y="33" w="26" h="21"/>
+      <frame x="100" y="38" w="26" h="21"/>
+      <frame x="7" y="49" w="19" h="16"/>
+    </animation>
+<animation name="dyingleft" speed="0.01f" loop="true">
+      <frame x="36" y="97" w="26" h="21"/>
+      <frame x="65" y="97" w="26" h="21"/>
+      <frame x="95" y="102" w="26" h="21"/>
+      <frame x="6" y="113" w="19" h="15"/>
+    </animation>
+</airenemy>
+</enemies>
  </entities>
