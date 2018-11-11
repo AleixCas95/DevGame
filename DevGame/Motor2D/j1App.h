@@ -52,9 +52,12 @@ public:
 	void SaveGame(const char* file) const;
 	void GetSaveGames(p2List<p2SString>& list_to_fill) const;
 
+
+
 	pugi::xml_document	config_file;
 	pugi::xml_node		config;
 	pugi::xml_node		app_config;
+	pugi::xml_node j1App::LoadEntitiesAnimation(pugi::xml_document& config_file) const;
 
 private:
 

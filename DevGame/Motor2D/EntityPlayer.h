@@ -49,6 +49,8 @@ public:
 
 	bool Save(pugi::xml_node& data) const;
 
+	void LoadAnimation(pugi::xml_node animation_node, Animation* animation);
+
 	void LoadTexture();
 
 	void FindPlayerSpawn();

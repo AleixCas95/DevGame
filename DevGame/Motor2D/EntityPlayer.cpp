@@ -18,129 +18,34 @@
 EntityPlayer::EntityPlayer(int x, int y, ENTITY_TYPE type) : Entity(x, y, type) 
 {
 
+	pugi::xml_document	config_file;
+	pugi::xml_node* node = &App->LoadEntitiesAnimation(config_file);
+	node = &node->child("player");
 
-	//idle right animation  //DONE
+	for (pugi::xml_node animations = node->child("animations").child("animation"); animations; animations = animations.next_sibling("animation"))
+	{
+		std::string ent(animations.attribute("name").as_string());
 
-	idle_right.PushBack({ 361,2,29,30 });
-	idle_right.PushBack({ 394,2,29,30 });
-	idle_right.PushBack({ 427,2,29,30 });
-	idle_right.speed = 0.01f;
-	idle_right.loop = true;
-
-	//idle left animation //DONE
-
-	idle_left.PushBack({ 690,2,29,30 });
-	idle_left.PushBack({ 657,2,29,30 });
-	idle_left.PushBack({ 624,2,29,30 });
-	idle_left.speed = 0.01f;
-	idle_left.loop = true;
-
-	//running right animation DONE
-
-	running_right.PushBack({ 29,53,31,29 });
-	running_right.PushBack({ 61,54,32,28 });
-	running_right.PushBack({ 103,54,32,38 });
-	running_right.PushBack({ 139,53,29,29 });
-	running_right.PushBack({ 170,52,31,30 });
-	running_right.PushBack({ 205,54,32,28 });
-	running_right.PushBack({ 242,55,31,27 });
-	running_right.PushBack({ 278,54,28,28 });
-	running_right.speed = 0.1f;
-	running_right.loop = true;
-
-	//running left animation DONE
-	running_left.PushBack({ 1020,53,31,29 });
-	running_left.PushBack({ 983,54,32,28 });
-	running_left.PushBack({ 945,54,32,28 });
-	running_left.PushBack({ 912,53,29,29 });
-	running_left.PushBack({ 879,52,31,30 });
-	running_left.PushBack({ 843,54,32,28 });
-	running_left.PushBack({ 807,55,31,27 });
-	running_left.PushBack({ 774,54,28,28 });
-	running_left.speed = 0.2f;
-	running_left.loop = true;
-
-	//die right animation TO DO
-
-	die_right.PushBack({ 33,334,19,24 });
-	die_right.PushBack({ 81,345,19,24 });
-	die_right.PushBack({ 132,345,22,24 });
-	die_right.PushBack({ 184,345,18,24 });
-	die_right.PushBack({ 237,345,15,24 });
-	die_right.PushBack({ 284,345,18,24 });
-	die_right.speed = 0.1f;
-	die_right.loop = false;
-
-
-	//die left animation TO DO
-
-	die_left.PushBack({ 330,1327,19,24 });
-	die_left.PushBack({ 282,1326,19,24 });
-	die_left.PushBack({ 249,1327,22,24 });
-	die_left.PushBack({ 180,1327,18,24 });
-	die_left.PushBack({ 130,1327,15,24 });
-	die_left.PushBack({ 80,1327,18,24 });
-	die_left.speed = 0.1f;
-	die_left.loop = false;
-
-
-	//slide right animation TO DO
-
-	slide_right.PushBack({ 171,130,34,17 });
-	slide_right.PushBack({ 221,130,34,17 });
-	slide_right.PushBack({ 271,130,34,17 });
-	slide_right.PushBack({ 325,130,30,17 });
-	slide_right.speed = 0.01f;
-	slide_right.loop = true;
-
-	//slide left animation TO DO
-
-	slide_left.PushBack({ 177,1112,34,17 });
-	slide_left.PushBack({ 127,1112,34,17 });
-	slide_left.PushBack({ 77,1112,34,17 });
-	slide_left.PushBack({ 27,1112,30,17 });
-	slide_left.speed = 0.1f;
-	slide_left.loop = true;
-
-	//fall right animation done
-	fall_right.PushBack({ 475,37,23,42 });
-	fall_right.speed = 0.1f;
-	fall_right.loop = true;
-
-	//fall left animation done
-	fall_left.PushBack({ 582,37,23,42 });
-	fall_left.speed = 0.1f;
-	fall_left.loop = true;
-
-
-	//jumping left animation done
-	jumping_left.PushBack({ 708,50,23,32 });
-	jumping_left.PushBack({ 673,49,30,32 });
-	jumping_left.PushBack({ 639,42,29,37 });
-	jumping_left.PushBack({ 611,37,23,42 });
-	jumping_left.PushBack({ 582,37,23,42 });
-	jumping_left.speed = 0.1f;
-	jumping_left.loop = false;
-
-	//jumping right animation DONE
-	//jumping_right.PushBack({ 314,53,31,29 });
-	jumping_right.PushBack({ 349,50,23,32 });
-	jumping_right.PushBack({ 377,49,30,32 });
-	jumping_right.PushBack({ 412,42,29,37 });
-	jumping_right.PushBack({ 446,37,23,42 });
-	jumping_right.PushBack({ 475,37,23,42 });
-	//jumping_right.PushBack({ 505,54,30,29 });
-	jumping_right.speed = 0.1f;
-	jumping_right.loop = false;
-
-
-	//attack right done
-	attack_right.PushBack({67,557,40,30});
-	attack_right.PushBack({115,558,53,30});
-	attack_right.PushBack({177,559,53,29});
-	attack_right.PushBack({235,559,45,29});
-	attack_right.speed = 0.1f;
-	attack_right.loop = false;
+		if (ent == "idle right")
+			LoadAnimation(animations, &idle_right);
+		else if (ent == "idle_left")
+			LoadAnimation(animations, &idle_left);
+		else if (ent == "running_right")
+			LoadAnimation(animations, &running_right);
+		else if (ent == "running_left")
+			LoadAnimation(animations, &running_left);
+		else if (ent == "fall_right")
+			LoadAnimation(animations, &fall_right);
+		else if (ent == "fall_left")
+			LoadAnimation(animations, &fall_left);
+		else if (ent == "jumping_left")
+			LoadAnimation(animations, &jumping_left);
+		else if (ent == "jumping_right")
+			LoadAnimation(animations, &jumping_right);
+		else if (ent == "attack_right")
+			LoadAnimation(animations, &attack_right);
+	}
+		
 
 
 	Start();
@@ -394,6 +299,17 @@ int EntityPlayer::GetPlayerTile(fPoint pos) const
 	return tile_number;
 }
 
+void EntityPlayer::LoadAnimation(pugi::xml_node animation_node, Animation* animation)
+{
+	bool ret = true;
+
+	for (pugi::xml_node frame = animation_node.child("frame"); frame && ret; frame = frame.next_sibling("frame"))
+		animation->PushBack({ frame.attribute("x").as_int() , frame.attribute("y").as_int(), frame.attribute("w").as_int(), frame.attribute("h").as_int() });
+
+	animation->speed = animation_node.attribute("speed").as_float();
+	animation->loop = animation_node.attribute("loop").as_bool();
+	
+}
 
 
 void EntityPlayer::FindPlayerSpawn()
