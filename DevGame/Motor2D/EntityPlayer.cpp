@@ -114,6 +114,7 @@ bool EntityPlayer::Update(float dt)
 		if (CheckCollision(GetPlayerTile({ tempPos.x + 5, tempPos.y + animation->GetCurrentFrame().h })) == COLLISION_TYPE::DEATH
 			&& CheckCollision(GetPlayerTile({ tempPos.x + 10, tempPos.y + animation->GetCurrentFrame().h })) == COLLISION_TYPE::DEATH)
 		{
+			App->fade->FadeToBlack(App->scene, App->scene, 0.5f);
 			App->audio->PlayFx(2);
 			SpawnPLayer();
 		}
@@ -253,9 +254,11 @@ bool EntityPlayer::Update(float dt)
 	//attack right
 
 
-	if ((App->input->GetKey(SDL_SCANCODE_G) == KEY_DOWN))
+	if ((App->input->GetKey(SDL_SCANCODE_G) == KEY_REPEAT))
 	{
 		animation = &attack_right;
+		
+		
 	}
 	cont++;
 	return true;
@@ -264,6 +267,7 @@ bool EntityPlayer::Update(float dt)
 bool EntityPlayer::CleanUp()
 {
 	App->tex->UnLoad(texture);
+
 	return true;
 }
 

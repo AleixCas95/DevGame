@@ -36,7 +36,7 @@ bool j1Entities::PreUpdate() {
 		if (item->data->destroy_entity==true) {
 
 			
-			delete(item);
+		/*	item->data->~Entity();*/
 			entities.del(item);
 		}
 	}
@@ -68,7 +68,8 @@ bool j1Entities::CleanUp() {
 	
 	for (p2List_item<Entity*>* item = entities.start; item != nullptr; item = item->next) {
 
-			delete(item);
+	
+		/*item->data->~Entity();*/
 			entities.del(item);
 		}
 	return true;
@@ -82,8 +83,8 @@ bool j1Entities::SpawnEntity(int x, int y,ENTITY_TYPE type) {
 
 	case ENTITY_TYPE::PLAYER: {
 
-		EntityPlayer* entityPlayer = new EntityPlayer(x, y, PLAYER);
-		entities.add(entityPlayer);
+		player = new EntityPlayer(x, y, PLAYER);
+		entities.add(player);
 
 		break; }
 

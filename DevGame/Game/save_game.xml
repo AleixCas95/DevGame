@@ -8,10 +8,9 @@
 	<scene>
 		<Map CurrentMap="1" />
 	</scene>
-	<player>
-		<position x="234" y="513.199524" />
-	</player>
+	<entities />
 	<renderer>
-		<camera x="0" y="0" />
+		<camera x="-3400" y="0" />
 	</renderer>
+	<:anonymous />
 </game_state>

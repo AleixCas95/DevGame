@@ -52,8 +52,6 @@ public:
 
 	virtual void FindEntitySpawn() {};
 
-	virtual void SpawnEntity() {};
-
 	virtual void Draw();
 
 	

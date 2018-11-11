@@ -16,6 +16,7 @@ Entity::Entity(int x, int y, ENTITY_TYPE type): pos(x,y),type(type){}
 Entity::~Entity(){
 
 	App->tex->UnLoad(texture);
+
 	
 }
 

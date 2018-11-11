@@ -48,7 +48,7 @@ bool j1Scene::Start()
 
 
 	App->map->Load(CurrentMap->data);
-	App->entities->player= App->entities->SpawnPlayer(0, 0);
+	App->entities->SpawnEntity(0, 0, PLAYER);
 	//App->entities->entities.add(App->entities->player);
 	App->audio->PlayMusic("audio/music/Mushroom_Theme.ogg");
 	
@@ -123,10 +123,11 @@ bool j1Scene::Update(float dt)
 
 	//FadeToBlack
 
-	/*if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
-	{
-		App->fade->FadeToBlack(App->map, App->map,1.5f);
-	}*/
+	//if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	//{
+	//
+	//	App->fade->FadeToBlack(App->map, App->map,1.5f);
+	//}
 
 	//App->render->Blit(img, 0, 0);
 	App->map->Draw();
@@ -157,12 +158,13 @@ bool j1Scene::PostUpdate()
 // Called before quitting
 bool j1Scene::CleanUp()
 {
+	
 
 	App->entities->player->destroy_entity = true;
 
 	App->entities->player = nullptr;
 
-
+	
 	LOG("Freeing scene");
 	return true;
 }
